@@ -1,0 +1,622 @@
+/*
+Theme Name: millerweiner
+Theme URI: http://underscores.me/
+Author: Dylan Nirvana
+Author URI: http://underscores.me/
+Description: Description
+Version: 0.1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: millerweiner
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+millerweiner is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+------------------------------------------------
+Gulp Styles TEST #4
+------------------------------------------------
+
+1.0 Compass imports
+  1.0 Compass
+2.0 External Libraries
+  2.1 Susy, Breakpoint
+3.0 Core Partials
+  3.1 Variables
+  3.2 Mixins
+  3.3 Base
+  3.4 Layout
+4.0 Import Modules
+  4.1 Brand
+  4.2 Mission
+  4.3 Season
+  4.4 Players
+  4.5 News
+  4.6 Education
+  4.7 clients
+5.0 Footers
+  5.1 Main Footer
+6.0 Navigation
+  6.1 Main Nav
+7.0 Bootstrap 
+  7.1 Bootstrap CDN
+  7.2 Bootstrap Overwrites
+
+------------------------------------------------
+END TABLE OF CONTENTS
+------------------------------------------------
+
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+1.1 Compass
+--------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+2.1 Susy, Breakpoint
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+3.1 Variables
+--------------------------------------------------------------*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/**  Header Navigation **/
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+header {
+  /**  Navbar Brand **/
+  /**  Navbar Toggle **/
+  /**  nav inbody **/
+}
+header .navbar {
+  padding: 30px 0;
+  transition: all 5s ease-out;
+  font-size: 1em;
+}
+header .navbar-default {
+  background-color: transparent;
+  border: none;
+}
+header .navbar-default .navbar-nav > li > a {
+  font-family: "kepler-std-extended-display", Times, serif;
+  font-weight: 200;
+  display: inline-block;
+}
+header .navbar-default .navbar-nav a {
+  color: white;
+  padding: 5px 8px;
+}
+header .navbar-default .navbar-nav a:hover {
+  color: #D7B56C;
+}
+header .navbar-default .navbar-nav .active a {
+  font-weight: 200;
+  color: #D7B56C;
+  background: transparent;
+  border-bottom: 2px solid #D7B56C;
+  text-shadow: none;
+}
+header .navbar-default .navbar-nav .active a:hover {
+  color: #D7B56C;
+  background: transparent;
+  text-shadow: none;
+}
+header .navbar-toggle {
+  background-color: #313131;
+}
+header .navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+header .inbody {
+  background: #313131;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+header .navbar.inbody {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+header .navbar.inbody .navbar-nav {
+  padding-top: 10px;
+}
+
+.carousel.fade {
+  opacity: 1;
+}
+.carousel.fade .item {
+  transition: opacity ease-out .7s;
+  left: 0;
+  opacity: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  display: block;
+}
+.carousel.fade .item:first-child {
+  top: auto;
+  opacity: 0;
+  position: relative;
+}
+.carousel.fade .item.active {
+  opacity: 1;
+}
+
+.carousel-control {
+  opacity: 0;
+}
+
+.carousel-control.right,
+.carousel-control.left {
+  background-image: none;
+}
+
+#featured .item {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+}
+
+#featured .carousel-inner {
+  -webkit-filter: grayscale(9);
+  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);
+  filter: url(#greyscale);
+  filter: gray;
+}
+#featured .carousel-inner:hover {
+  -webkit-filter: grayscale(0.6);
+  -webkit-filter: grayscale(60%);
+  filter: grayscale(60%);
+  filter: url(#greyscale);
+  filter: gray;
+}
+
+@media only screen and (max-width: 768px) {
+  header .navbar-collapse.in {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+/*--------------------------------------------------------------
+3.2 Mixins
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+3.3 Base
+--------------------------------------------------------------*/
+body {
+  position: relative;
+}
+body .scene {
+  padding-top: 70px;
+  padding-bottom: 80px;
+  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  font: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  background: #f2e7d0;
+}
+body .scene h1, body .scene h2, body .scene h3, body .scene h4, body .scene h5, body .scene h6 {
+  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  color: #575757;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+body .scene strong {
+  font-weight: 600;
+}
+body .scene p {
+  padding-bottom: 10px;
+  font: 200 1rem/1.6rem "kepler-std-extended-display", Times, serif;
+}
+
+/*--------------------------------------------------------------
+3.4 Layout
+--------------------------------------------------------------*/
+.scene {
+  position: relative;
+  padding-top: 20px;
+}
+.scene article {
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.scene article:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+@media (min-width: 1200px) {
+  .scene {
+    padding: 40px 0;
+  }
+}
+@media (min-width: 960px) {
+  .scene article {
+    max-width: 60em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .scene article:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
+/*--------------------------------------------------------------
+4.1 Brand
+--------------------------------------------------------------*/
+.navbar-brand {
+  background: url("images/logo/logoSans65.png");
+  background-repeat: no-repeat;
+  background-position: 15px 0;
+  opacity: .8;
+  height: auto;
+  padding-bottom: 4px;
+  z-index: 100;
+}
+.navbar-brand h1 {
+  font-family: "kepler-std-extended-display", Times, serif;
+  font-size: 1.6rem;
+  text-transform: none;
+  color: #cccccc;
+  font-weight: 400;
+  margin: 0;
+  padding-left: 32px;
+  line-height: .7em;
+  opacity: 1;
+}
+.navbar-brand span {
+  display: block;
+  letter-spacing: .6rem;
+  text-transform: uppercase;
+  font-size: .95rem;
+  font-weight: 200;
+  margin-left: -2px;
+}
+.navbar-brand span img {
+  width: 16px;
+  opacity: .5;
+  margin-right: 6px;
+  margin-top: 2px;
+  z-index: 500;
+}
+
+/*--------------------------------------------------------------
+4.2 Mission
+--------------------------------------------------------------*/
+#mission {
+  background: #e2c994;
+}
+#mission .content h1, #mission .content h2, #mission .content h3, #mission .content h4, #mission .content h5, #mission .content h6 {
+  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  color: #575757;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+#mission .content p {
+  padding: 40px, 60px;
+}
+
+/*--------------------------------------------------------------
+4.3 Season
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+4.4 Players
+--------------------------------------------------------------*/
+#players {
+  padding: 0;
+  background-color: #313131;
+}
+#players:before, #players:after {
+  content: '';
+  display: table;
+}
+#players:after {
+  clear: both;
+}
+#players header {
+  background-color: #f2e7d0;
+  padding: 40px;
+}
+#players .players {
+  position: relative;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-filter: grayscale(9);
+  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);
+  filter: url(#greyscale);
+  filter: gray;
+}
+#players .players:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#players .players:hover {
+  -webkit-filter: grayscale(0.6);
+  -webkit-filter: grayscale(60%);
+  filter: grayscale(60%);
+  filter: url(#greyscale);
+  filter: gray;
+}
+@media (min-width: 400px) {
+  #players .players {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+  }
+}
+@media (min-width: 650px) {
+  #players .players {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 33.33333%;
+    float: left;
+  }
+}
+@media (min-width: 960px) {
+  #players .players {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+  }
+}
+#players .players .content {
+  position: absolute;
+  bottom: 0;
+  background: rgba(36, 36, 36, 0.7);
+  padding: 30px;
+  color: #f2e7d0;
+  font-weight: 200;
+  line-height: 130%;
+  max-height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+#players .players .content h2 {
+  color: #f2e7d0;
+  line-height: 1em;
+  font-size: .6em;
+}
+#players .players .content p {
+  position: relative;
+  padding: 5px 0;
+  display: none;
+}
+#players .players .content:hover p {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+4.5 News
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+4.6 Education
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+4.7 clients 
+--------------------------------------------------------------*/
+#clients {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 60;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("images/donate/donate.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-filter: grayscale(9);
+  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);
+  filter: url(#greyscale);
+  filter: gray;
+}
+#clients:before, #clients:after {
+  content: '';
+  display: table;
+}
+#clients:after {
+  clear: both;
+}
+#clients:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#clients:hover {
+  -webkit-filter: grayscale(0.6);
+  -webkit-filter: grayscale(60%);
+  filter: grayscale(60%);
+  filter: url(#greyscale);
+  filter: gray;
+}
+#clients article {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  background: rgba(242, 231, 208, 0.8);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+#clients article:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+@media (min-width: 960px) {
+  #clients article {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #clients article:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+#clients button {
+  float: right;
+  color: #f2e7d0;
+  border: none;
+  background-color: #000D42;
+  font-size: 1em;
+  padding: 12px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+/*--------------------------------------------------------------
+5.1 Main Footer
+--------------------------------------------------------------*/
+#footer {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #242424;
+  padding-top: 40px;
+  padding-bottom: 2px;
+}
+#footer:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#footer .content {
+  text-align: center;
+}
+#footer .content ul {
+  list-style: none;
+}
+#footer .content ul li {
+  display: inline-block;
+  padding: 10px;
+}
+#footer .content ul li a {
+  text-decoration: none;
+  color: #4b4b4b;
+}
+#footer .content ul li a:hover {
+  color: #dcbf80;
+}
+#footer .content ul li img {
+  width: 30px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+#footer .content #copyright {
+  margin-top: 40px;
+  font-size: 12px;
+  padding-bottom: none;
+  text-align: right;
+}
+
+/*--------------------------------------------------------------
+6.1 Main nav
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+7.1 Bootstrap CDN
+----------------------------------------------------------*/
+/*--------------------------------------------------------------
+7.2 Bootstrap Overwrites
+----------------------------------------------------------*/

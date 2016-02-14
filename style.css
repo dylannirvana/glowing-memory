@@ -1,0 +1,863 @@
+/*
+Theme Name: Miller Weiner Theme
+Theme URI: http://underscores.me/
+Author: Dylan Nirvana
+Author URI: http://underscores.me/
+Description: This is a Custom Theme built for the Miller Weiner Web Application and is non-transferable. It receives a Node.js application and provides CMS admin services. As a Single Page Application (SPA), it uses Sass, Compass and JavaScript libraries Susy, Breakpoint and ScrollMagic to provide an ultra-modern web experience. It is fully responsive and integrates with Time.ly calendar services and social networks. Enjoy using the Miller Weiner Web Application.
+Version: 0.1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: millerweiner
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+millerweiner is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+------------------------------------------------
+Gulp Styles TEST #5
+------------------------------------------------
+
+1.0 Compass imports
+  1.0 Compass
+2.0 External Libraries
+  2.1 Susy, Breakpoint
+3.0 Core Partials
+  3.1 Variables
+  3.2 Mixins
+  3.3 Base
+  3.4 Layout
+4.0 Import Modules
+  4.1 Brand
+  4.2 Editorial & Media Services
+  4.3 Spokespeople
+  4.4 Media Tour
+  4.5 Clients
+  4.6 News
+5.0 Footers
+  5.1 Main Footer
+6.0 Navigation
+  6.1 Main Nav
+7.0 Bootstrap 
+  7.1 Bootstrap CDN
+  7.2 Bootstrap Overwrites
+
+------------------------------------------------
+END TABLE OF CONTENTS
+------------------------------------------------
+
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+1.1 Compass
+--------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+2.1 Susy, Breakpoint
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+3.1 Variables
+--------------------------------------------------------------*/
+/**  Header Navigation **/
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+header {
+  /**  Navbar Toggle **/
+  /**  nav inbody **/
+}
+header .navbar {
+  padding: 0;
+  transition: all 5s ease-out;
+  font-size: 1em;
+}
+header .navbar #logo {
+  color: #000;
+  opacity: 1 !important;
+}
+header .navbar-default {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+}
+header .navbar-default .navbar-nav a#address {
+  color: #c5c9d6;
+  display: inline-block;
+  text-transform: capitalize;
+  padding-top: 10px;
+  float: right;
+  font-family: "brandon-grotesque", Helvetica Neue, sans-serif;
+  font-size: .9em;
+  font-weight: 400;
+}
+header .navbar-default .navbar-nav > li > a {
+  color: #daa776;
+  font-family: "brandon-grotesque", Helvetica Neue, sans-serif;
+  text-transform: uppercase;
+  font-size: .9em;
+  font-weight: 400;
+  display: inline-block;
+  margin-top: 4px;
+}
+header .navbar-default .navbar-nav a {
+  color: white;
+  padding: 0 8px;
+}
+header .navbar-default .navbar-nav a:hover {
+  color: #D98966;
+}
+header .navbar-default .navbar-nav .active a {
+  font-weight: 200;
+  color: #D98966;
+  background: transparent;
+  border-bottom: 2px solid #D98966;
+  text-shadow: none;
+}
+header .navbar-default .navbar-nav .active a:hover {
+  color: #D98966;
+  background: transparent;
+  text-shadow: none;
+}
+header .navbar-toggle {
+  background-color: #fff;
+}
+header .navbar-default .navbar-toggle .icon-bar {
+  background-color: #ddd;
+}
+header .inbody {
+  background: #fff;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  opacity: 0.9;
+}
+header .navbar.inbody {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+header .navbar.inbody .navbar-nav {
+  padding-top: 4px;
+}
+header .navbar.inbody .logo img {
+  padding-left: 0;
+}
+
+.carousel.fade {
+  opacity: 1;
+}
+.carousel.fade .item {
+  transition: opacity ease-out 2.5s;
+  left: 0;
+  opacity: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  display: block;
+}
+.carousel.fade .item:first-child {
+  top: auto;
+  opacity: 0;
+  position: relative;
+}
+.carousel.fade .item.active {
+  opacity: 1;
+}
+
+.carousel-control {
+  opacity: 0;
+}
+
+.carousel-control.right,
+.carousel-control.left {
+  background-image: none;
+}
+
+#featured .item {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-caption {
+  width: 100%;
+  opacity: .5;
+  right: 0;
+  left: 0;
+  bottom: 100px;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.carousel-caption h3 {
+  font-size: 4em;
+  font-family: "grafolita-script", Times;
+}
+.carousel-caption p {
+  font-size: 1.8em;
+  padding-top: 16px;
+  font-family: "kinesis-pro-3", Times, serif;
+}
+
+@media only screen and (max-width: 768px) {
+  header .navbar-collapse.in {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+#video-background {
+  /*  making the video fullscreen  */
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/*--------------------------------------------------------------
+3.2 Mixins
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+3.3 Base
+--------------------------------------------------------------*/
+.container {
+  background-color: #D98966;
+}
+
+div.entry-content img {
+  width: 40%;
+  height: 40%;
+}
+
+body {
+  position: relative;
+  background: #B87432;
+}
+body input#submit {
+  color: #DC38E0 !important;
+}
+body a {
+  color: #DC38E0;
+}
+body header .deck p {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+body #featured {
+  margin-top: 0;
+  padding-top: 0;
+  top: 0;
+}
+body .main {
+  margin-top: 0;
+  padding-top: 0;
+}
+body .scene {
+  padding-top: 60px !important;
+  margin-top: 0px !important;
+  padding-bottom: 100px;
+  font-family: 400 2rem/2rem "brandon-grotesque", Helvetica Neue, sans-serif;
+  font: 400 2rem/2rem "brandon-grotesque", Helvetica Neue, sans-serif;
+}
+body .scene h1, body .scene h2, body .scene h3, body .scene h4, body .scene h5, body .scene h6 {
+  font-family: 400 2rem/2rem "brandon-grotesque", Helvetica Neue, sans-serif;
+  color: #595959;
+  text-transform: uppercase;
+  padding-top: 36px;
+  padding-bottom: 16px;
+}
+body .scene strong {
+  font-weight: 600;
+}
+body .scene p {
+  padding-bottom: 10px;
+  font: 400 1rem/1.6rem "kinesis-pro-3", Times, serif;
+  color: #4d4d4d;
+}
+body .widget-area span.comment-author-link ::after {
+  font-size: 6em !important;
+}
+
+.wp-core-ui .button-primary,
+.wp-core-ui .button-primary.hover,
+.wp-core-ui .button-primary:hover,
+.wp-core-ui .button-primary.focus,
+.wp-core-ui .button-primary:focus {
+  background: #DC38E0 !important;
+  border-color: #FFF747 !important;
+}
+
+/*--------------------------------------------------------------
+3.4 Layout
+--------------------------------------------------------------*/
+.scene {
+  position: relative;
+  padding-top: 0;
+}
+.scene article {
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.scene article:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+@media (min-width: 960px) {
+  .scene article {
+    max-width: 60em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .scene article:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*--------------------------------------------------------------
+4.1 Brand
+--------------------------------------------------------------*/
+.navbar-brand {
+  opacity: .8;
+  height: auto;
+  padding-bottom: 4px;
+  padding: 0 15px;
+  z-index: 100;
+}
+.navbar-brand h1 {
+  font-family: "kinesis-pro-3", Times, serif;
+  font-size: 1.6rem;
+  text-transform: none;
+  color: #e6e6e6;
+  font-weight: 400;
+  margin: 0;
+  padding-left: 32px;
+  line-height: .7em;
+  opacity: 1;
+}
+.navbar-brand span {
+  display: block;
+  letter-spacing: .6rem;
+  text-transform: uppercase;
+  font-size: .95rem;
+  font-weight: 200;
+  margin-left: -2px;
+}
+
+/*--------------------------------------------------------------
+4.2 media
+--------------------------------------------------------------*/
+#media .content {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+#media .content h1, #media .content h2, #media .content h3, #media .content h4, #media .content h5, #media .content h6 {
+  font-family: 400 2rem/2rem "brandon-grotesque", Helvetica Neue, sans-serif;
+  text-transform: uppercase;
+}
+@media (min-width: 960px) {
+  #media .content p {
+    -moz-columns: 20em 2;
+    -webkit-columns: 20em 2;
+    columns: 20em 2;
+  }
+}
+
+/*--------------------------------------------------------------
+4.3 Media Tour
+--------------------------------------------------------------*/
+#tour span.callout {
+  font: 200 1.6rem/2rem "kinesis-pro-3", Times, serif;
+  color: #4d4d4d;
+  text-decoration: initial !important;
+}
+#tour .content h1, #tour .content h2, #tour .content h3, #tour .content h4, #tour .content h5, #tour .content h6 {
+  font-family: 400 2rem/2rem "brandon-grotesque", Helvetica Neue, sans-serif;
+  color: #595959;
+}
+#tour .content .entry-meta {
+  font-size: .7em;
+}
+#tour .content .blogmain {
+  padding-left: 34px !important;
+}
+#tour .content .blogmain .performance {
+  text-align: right;
+}
+#tour .content .blogmain .ticket-type-description {
+  display: visible;
+}
+#tour .content .blogmain h1.event-name {
+  font-size: 1em !important;
+  margin-top: 36px;
+  padding-bottom: 6px;
+  font-style: 600 !important;
+}
+#tour .content .blogmain .event-subtitle {
+  font-size: .7em;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+#tour .content .blogmain h3.event-producer {
+  text-transform: none !important;
+  font-size: .5em;
+  margin-top: -4px;
+  padding-top: -4px;
+  padding-bottom: 0px;
+}
+#tour .content .blogmain a.performance-datetime {
+  color: #DC38E0;
+}
+#tour .content .blogmain div a {
+  font-size: .7em;
+  color: #333;
+}
+#tour .content .blogmain p {
+  font-size: .8em;
+}
+#tour .content .blogside {
+  margin-top: 36px;
+}
+#tour .content .blogside p {
+  color: #4d4d4d !important;
+  padding-top: 6px !important;
+}
+#tour .content .blogside h1, #tour .content .blogside h2, #tour .content .blogside h3, #tour .content .blogside h4, #tour .content .blogside h5, #tour .content .blogside h6 {
+  font-size: .5em;
+  padding-top: 6px;
+}
+#tour .content .blogside a {
+  font-size: .6em;
+  color: #333;
+}
+@media (min-width: 650px) {
+  #tour .content article.blogmain {
+    width: 66.66667%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+  #tour .content aside.blogside {
+    width: 25%;
+    float: right;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+}
+
+#shopping-cart {
+  z-index: 1000;
+}
+
+/*--------------------------------------------------------------
+4.4 Spokespeople
+--------------------------------------------------------------*/
+#spokespeople article.biocolumn {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 960px) {
+  #spokespeople article.biocolumn {
+    -moz-columns: 2;
+    -webkit-columns: 2;
+    columns: 2;
+  }
+}
+#spokespeople article.biocolumn:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#spokespeople article.biocolumn .headshot > img {
+  float: left;
+  width: 50%;
+  height: 50%;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+@media (min-width: 650px) {
+  #spokespeople article.biocolumn .headshot > img {
+    width: 25%;
+    height: 25%;
+    z-index: 1000;
+  }
+}
+#spokespeople article.biocolumn div.bio h3, #spokespeople article.biocolumn p {
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+/*--------------------------------------------------------------
+4.5 Clients
+--------------------------------------------------------------*/
+#clients {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 40;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("images/artwork/Riley_Rewington_03.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-filter: grayscale(9);
+  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);
+  filter: url(#greyscale);
+  filter: gray;
+}
+#clients:before, #clients:after {
+  content: '';
+  display: table;
+}
+#clients:after {
+  clear: both;
+}
+#clients:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#clients form#paypal {
+  text-align: right;
+}
+#clients:hover {
+  -webkit-filter: grayscale(0.6);
+  -webkit-filter: grayscale(60%);
+  filter: grayscale(60%);
+  filter: url(#greyscale);
+  filter: gray;
+}
+#clients article {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  margin-top: 140px;
+  margin-bottom: 200px;
+  background: rgba(255, 255, 255, 0.8);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+#clients article:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#clients article h1, #clients article h2, #clients article h3, #clients article h4, #clients article h5, #clients article h6 {
+  font-weight: 200;
+}
+#clients article p, #clients article li {
+  font-weight: 200;
+}
+@media (min-width: 960px) {
+  #clients article h3 {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
+#clients article .clientList {
+  -moz-columns: 8em 2;
+  -webkit-columns: 8em 2;
+  columns: 8em 2;
+  font-size: .6em;
+  font-family: 400 2rem/2rem "brandon-grotesque", Helvetica Neue, sans-serif;
+  line-height: 1em;
+}
+#clients article .clientList a {
+  color: #DC38E0;
+  font-size: .6em;
+}
+#clients button {
+  float: right;
+  color: #fff;
+  border: none;
+  background-color: #8A91AB;
+  font-size: 1em;
+  padding: 12px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+article.blogmain .entry-title h1 {
+  text-transform: uppercase;
+}
+
+.entry-content {
+  font-size: .6em;
+}
+
+/*--------------------------------------------------------------
+4.6 News 
+--------------------------------------------------------------*/
+.news header, #news header {
+  padding-bottom: 20px;
+}
+.news .content a, #news .content a {
+  font-size: .7em;
+}
+.news .content .entry-meta, #news .content .entry-meta {
+  font-size: .7em;
+}
+.news .content article.blogmain, #news .content article.blogmain {
+  padding-left: 14px !important;
+  padding-right: 34px !important;
+  border-right: 1px solid #666 !important;
+}
+.news .content article.blogmain div.ai1ec-field-label, #news .content article.blogmain div.ai1ec-field-label {
+  padding-right: 0;
+  padding-left: 4px;
+}
+.news .content article.blogmain h1, #news .content article.blogmain h1 {
+  font-size: 1em;
+  text-transform: none;
+  text-align: left !important;
+  padding-bottom: 2px !important;
+}
+.news .content article.blogmain h2, #news .content article.blogmain h2 {
+  text-transform: none !important;
+  font-size: 1em;
+  text-align: left;
+  padding-bottom: 2px !important;
+}
+.news .content article.blogmain h3, #news .content article.blogmain h3 {
+  font-size: .4em;
+  text-align: left;
+  padding-bottom: 6px !important;
+}
+.news .content article.blogmain a, #news .content article.blogmain a {
+  color: #DC38E0;
+}
+.news .content article.blogmain div a, #news .content article.blogmain div a {
+  font-size: .7em;
+  color: #333;
+}
+.news .content article.blogmain .comment-form-comment label, #news .content article.blogmain .comment-form-comment label {
+  display: none;
+}
+.news .content article.blogmain .form-allowed-tags, #news .content article.blogmain .form-allowed-tags {
+  display: none;
+}
+.news .content article.blogmain .entry-title, #news .content article.blogmain .entry-title {
+  padding-top: 44px;
+}
+.news .content article.blogmain img.attachment-post-thumbnail.wp-post-image, #news .content article.blogmain img.attachment-post-thumbnail.wp-post-image {
+  float: left;
+  padding-right: 20px;
+  padding-bottom: 40px;
+}
+.news .content .blogside, #news .content .blogside {
+  padding-top: 26px;
+  margin-left: 24px;
+}
+.news .content .blogside h1, .news .content .blogside h2, .news .content .blogside h3, .news .content .blogside h4, .news .content .blogside h5, .news .content .blogside h6, #news .content .blogside h1, #news .content .blogside h2, #news .content .blogside h3, #news .content .blogside h4, #news .content .blogside h5, #news .content .blogside h6 {
+  padding: 4px 0;
+  font-size: .7em;
+  text-align: left !important;
+}
+.news .content .blogside h1 ::after, .news .content .blogside h2 ::after, .news .content .blogside h3 ::after, .news .content .blogside h4 ::after, .news .content .blogside h5 ::after, .news .content .blogside h6 ::after, #news .content .blogside h1 ::after, #news .content .blogside h2 ::after, #news .content .blogside h3 ::after, #news .content .blogside h4 ::after, #news .content .blogside h5 ::after, #news .content .blogside h6 ::after {
+  font-size: .6em;
+}
+.news .content .blogside h1, #news .content .blogside h1 {
+  padding-top: 16px;
+}
+.news .content .blogside a, #news .content .blogside a {
+  font-size: .6em;
+  color: #333;
+}
+@media (min-width: 650px) {
+  .news .content .blogmain, #news .content .blogmain {
+    width: 75%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+  .news .content .blogside, #news .content .blogside {
+    width: 16.66667%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+}
+
+@media (min-width: 650px) {
+  #news #blogmain {
+    width: 66.66667%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+  #news #blogside {
+    width: 25%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+}
+
+/*--------------------------------------------------------------
+5.1 Main Footer
+--------------------------------------------------------------*/
+#footer {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #333;
+  padding-top: 40px;
+  padding-bottom: 2px;
+}
+#footer:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#footer .content {
+  text-align: center;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+#footer .content h1, #footer .content h2, #footer .content h3, #footer .content h4, #footer .content h5, #footer .content h6 {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+#footer .content h4 {
+  font-size: .6em !important;
+  padding-top: 0;
+}
+#footer .content div.copy {
+  text-align: left;
+}
+#footer .content div.copy p {
+  -moz-columns: 20em 2;
+  -webkit-columns: 20em 2;
+  columns: 20em 2;
+}
+#footer .content ul {
+  list-style: none;
+}
+#footer .content ul li {
+  display: inline-block;
+  padding: 10px;
+}
+#footer .content ul li a {
+  text-decoration: none;
+  color: #4d4d4d;
+}
+#footer .content ul li a:hover {
+  color: #de997a;
+}
+#footer .content ul li img {
+  width: 30px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+#footer .content #copyright {
+  margin-top: 40px;
+  font-size: 12px;
+  padding-bottom: none;
+  text-align: right;
+}
+
+/*--------------------------------------------------------------
+6.1 Main nav
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+7.1 Bootstrap CDN
+----------------------------------------------------------*/
+/*--------------------------------------------------------------
+7.2 Bootstrap Overwrites
+----------------------------------------------------------*/
